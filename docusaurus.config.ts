@@ -5,9 +5,9 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'AJMUN内部用サイト',
-  tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  title: 'AJMUNdocs-internal',
+  tagline: '事務局関係者向けサイト made by 総務',
+  favicon: 'img/ajmun-logo.png',
 
   // Set the production url of your site here
   url: 'https://internal-mogi.re4lity.com',
@@ -27,8 +27,8 @@ const config: Config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ja',
+    locales: ['ja'],
   },
 
   presets: [
@@ -71,7 +71,7 @@ const config: Config = {
       title: 'AJMUN内部用サイト',
       logo: {
         alt: 'AJMUN Logo',
-        src: 'img/logo.svg',
+        src: 'img/ajmun-logo.png',
       },
       items: [
         {
@@ -131,11 +131,21 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://git.re4lity.com/">re4lity</a> Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+    },
+    i18n: {
+      defaultLocale: 'ja',
+      locales: ['ja'],
+      localeConfigs: {
+        ja: {
+          label: '日本語',
+          direction: 'ltr',
+        },
+      },
     },
   } satisfies Preset.ThemeConfig,
 };

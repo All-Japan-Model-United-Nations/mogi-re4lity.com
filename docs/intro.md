@@ -18,7 +18,7 @@ sidebar_position: 1
   - このサイト上の情報をみだりに外部に出さないこと
   - ドキュメントなどで利用する際はそのドキュメントの閲覧権限を制御すること
 
-## Generate a new site
+## うおおお眠すぎいいいい
 
 Generate a new Docusaurus site using the **classic template**.
 

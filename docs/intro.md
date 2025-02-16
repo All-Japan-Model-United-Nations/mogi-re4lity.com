@@ -2,17 +2,17 @@
 sidebar_position: 1
 ---
 
-# 引継ぎ書(内部のみ)・トップ
+# Docs・トップ
 
 こちらのページは**AJMUN事務局関係者のみがアクセスできるサイト**となっています.
 
-## Getting Started
+## 公開用サイトと何が違うのか
 
-Get started by **creating a new site**.
+[公開用サイト](https://mogi.re4lity.com)は主に事務局員のリクルート目的、技術の共有目的で作成しています。
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+それに対し本サイトでは、個人情報を含むドキュメントへのアクセスや、ガバナンスから考えて内部のみにとどめておくべき事象をスタックしています。
 
-### What you'll need
+### 注意してほしいこと
 
 - [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
   - When installing Node.js, you are recommended to check all checkboxes related to dependencies.

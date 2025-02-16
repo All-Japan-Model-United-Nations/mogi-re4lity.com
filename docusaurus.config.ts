@@ -16,9 +16,10 @@ const config: Config = {
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
   organizationName: 'sudolifeagain', // Usually your GitHub org/user name.
   projectName: 'soumublog', // Usually your repo name.
+  deploymentBranch: 'gh-pages', // デプロイ先のブランチ名
+  trailingSlash: false, // 末尾のスラッシュを削除
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

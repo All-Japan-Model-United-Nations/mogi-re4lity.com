@@ -15,10 +15,10 @@ Create a file at `blog/2021-02-28-greetings.md`:
 slug: greetings
 title: Greetings!
 authors:
-  - name: Joel Marcey
-    title: Co-creator of Docusaurus 1
-    url: https://github.com/JoelMarcey
-    image_url: https://github.com/JoelMarcey.png
+  - name: re4lity
+    title: 第36回総務統括
+    url: https://github.com/sudolifeagain
+    image_url: https://github.com/sudolifeagain.png
   - name: Sébastien Lorber
     title: Docusaurus maintainer
     url: https://sebastienlorber.com

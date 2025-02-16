@@ -1,12 +1,12 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
+re4lity:
+  name: re4lity
+  title: 第36回模擬国連全日本大会事務局　総務統括
+  url: https://github.com/sudolifeagain
+  image_url: https://github.com/sudolifeagain.png
   page: true
   socials:
-    x: yangshunz
-    github: yangshun
+    x: re4l_ity
+    github: sudolifeagain
 
 slorber:
   name: Sébastien Lorber

@@ -25,7 +25,11 @@
     "cross-env": "^7.0.3",
     "prism-react-renderer": "^2.3.0",
     "react": "18",
-    "react-dom": "18"
+    "react-dom": "18",
+    "react-loadable": "*",
+    "acorn": "^8.0.0",
+    "search-insights": ">= 1 < 3",
+    "react-helmet-async": "1.3.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.7.0",

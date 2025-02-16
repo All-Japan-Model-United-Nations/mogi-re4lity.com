@@ -2,9 +2,9 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# 引継ぎ書(内部のみ)・トップ
 
-Let's discover **Docusaurus in less than 5 minutes**.
+こちらのページは**AJMUN事務局関係者のみがアクセスできるサイト**となっています.
 
 ## Getting Started
 

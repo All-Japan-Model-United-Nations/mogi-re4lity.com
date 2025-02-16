@@ -68,7 +68,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'AJMUN内部用サイト',
+      title: 'AJMUNdocs-internal',
       logo: {
         alt: 'AJMUN Logo',
         src: 'img/ajmun-logo.png',

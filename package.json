@@ -7,7 +7,7 @@
     "start": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus build && echo 'internal-mogi.re4lity.com' > build/CNAME && gh-pages -d build --add",
+    "deploy": "docusaurus build && echo internal-mogi.re4lity.com > build/CNAME && gh-pages -d build",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",

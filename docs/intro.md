@@ -14,8 +14,9 @@ sidebar_position: 1
 
 ### 注意してほしいこと
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+- 以下の点に気を付けてください:
+  - このサイト上の情報をみだりに外部に出さないこと
+  - ドキュメントなどで利用する際はそのドキュメントの閲覧権限を制御すること
 
 ## Generate a new site
 

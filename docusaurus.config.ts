@@ -1,6 +1,9 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -37,7 +40,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         name: 'google-site-verification',
-        content: 'xmlP7M078iOqLp6nNB_nlzlT-3sVGAGk7Lb5T9Do4gk',
+        content: process.env.GOOGLE_SITE_VERIFICATION || 'default-verification-code',
       },
     },
   ],
@@ -47,11 +50,8 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/sudolifeagain/soumublog/tree/main/',
+          sidebarPath: require.resolve('./sidebars.ts'),
+          editUrl: 'https://github.com/sudolifeagain/soumublog/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -59,13 +59,10 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/sudolifeagain/soumublog/tree/main/',
+          editUrl: 'https://github.com/sudolifeagain/soumublog/tree/main/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       } satisfies Preset.Options,
     ],

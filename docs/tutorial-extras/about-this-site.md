@@ -2,13 +2,19 @@
 sidebar_position: 1
 ---
 
-# Manage Docs Versions
+# このサイトについて
 
-Docusaurus can manage multiple versions of your docs.
+このサイトは[Docusaurus](https://docusaurus.io/)によってビルドされ、[Github Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages)によってデプロイされています。
+CLoudflareにてDNSを管理しているre4lity.comのサブドメイン、`internal-re4lity.com`をデプロイ先として指定しています。
 
-## Create a docs version
+## アクセス制限の実装
 
-Release a version 1.0 of your project:
+Cloudflare accessを用いてGoogleアカウントによるユーザー認証を導入しています。
+
+アクセス許可対象は以下のスプレッドシート内のメールアドレスを手動で追加して管理しています。
+[事務局員メアド/AJMUN36th個人情報シート - Google スプレッドシート](https://docs.google.com/spreadsheets/d/1m3ZCO0FGDChJexhbBZeNh0Y78ycSs-SwOmRbzSzgFXo/edit?resourcekey=&gid=869754857#gid=869754857)
+
+次期事務局員のメールアドレスも随時追加していきますので、お気軽にDiscordにて@総務統括でメンションください。
 
 ```bash
 npm run docusaurus docs:version 1.0

@@ -1,0 +1,34 @@
+{
+  "tutorialSidebar": [
+    "intro",
+    {
+      "type": "category",
+      "label": "Tutorial - Basics",
+      "items": [
+        "tutorial-basics/create-a-page",
+        "tutorial-basics/congratulations",
+        "tutorial-basics/create-a-blog-post",
+        {
+          "type": "link",
+          "label": "🔒 Contact",
+          "href": "https://git.re4lity.com/#/contact"
+        },
+        "tutorial-basics/create-a-document",
+        "tutorial-basics/deploy-your-site",
+        "tutorial-basics/markdown-features"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Tutorial - Extras",
+      "items": [
+        {
+          "type": "doc",
+          "id": "tutorial-extras/about-this-site",
+          "label": "このサイトの構造"
+        },
+        "tutorial-extras/translate-your-site"
+      ]
+    }
+  ]
+}

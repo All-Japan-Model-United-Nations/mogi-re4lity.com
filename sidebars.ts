@@ -19,9 +19,9 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Tutorial - Basics',
       items: [
+        'tutorial-basics/create-a-page',
         'tutorial-basics/congratulations',
         'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/create-a-page',
         {
           type: 'link',
           label: '🔒 Contact',
@@ -36,7 +36,11 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Tutorial - Extras',
       items: [
-        'tutorial-extras/manage-docs-versions',
+        {
+          type: 'doc',
+          id: 'tutorial-extras/about-this-site',
+          label: 'このサイトの構造',
+        },
         'tutorial-extras/translate-your-site',
       ],
     },

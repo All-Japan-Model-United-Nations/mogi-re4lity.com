@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 ---
-こちらは最新版です
+こちらはv1.0です
 # Create a Page
 
 Add **Markdown or React** files to `src/pages` to create a **standalone page**:

@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: 'Tutorial - Basics',
+      label: '総務引継ぎ',
       items: [
         'soumu_docs/create-a-page',
         'soumu_docs/congratulations',

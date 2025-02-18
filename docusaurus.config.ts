@@ -109,7 +109,7 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Links',
           items: [
             {
               label: '35回大会公式HP',

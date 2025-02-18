@@ -82,9 +82,9 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'ドキュメント',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: 'ブログ', position: 'left'},
         {
           href: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com',
           label: 'GitHub',

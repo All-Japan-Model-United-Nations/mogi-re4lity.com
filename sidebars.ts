@@ -17,19 +17,19 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: 'Tutorial - Basics',
+      label: '総務引継ぎ',
       items: [
-        'tutorial-basics/create-a-page',
-        'tutorial-basics/congratulations',
-        'tutorial-basics/create-a-blog-post',
+        'soumu_docs/overall',
+        'soumu_docs/congratulations',
+        'soumu_docs/create-a-blog-post',
         {
           type: 'link',
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',
         },
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/deploy-your-site',
-        'tutorial-basics/markdown-features',
+        'soumu_docs/create-a-document',
+        'soumu_docs/deploy-your-site',
+        'soumu_docs/markdown-features',
       ],
     },
     {

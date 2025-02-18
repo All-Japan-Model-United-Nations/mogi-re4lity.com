@@ -19,7 +19,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '総務引継ぎ',
       items: [
-        'soumu_docs/create-a-page',
+        'soumu_docs/overall',
         'soumu_docs/congratulations',
         'soumu_docs/create-a-blog-post',
         {

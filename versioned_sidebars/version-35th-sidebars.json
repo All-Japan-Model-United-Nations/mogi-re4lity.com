@@ -5,17 +5,17 @@
       "type": "category",
       "label": "Tutorial - Basics",
       "items": [
-        "tutorial-basics/create-a-page",
-        "tutorial-basics/congratulations",
-        "tutorial-basics/create-a-blog-post",
+        "soumu_docs/create-a-page",
+        "soumu_docs/congratulations",
+        "soumu_docs/create-a-blog-post",
         {
           "type": "link",
           "label": "🔒 Contact",
           "href": "https://git.re4lity.com/#/contact"
         },
-        "tutorial-basics/create-a-document",
-        "tutorial-basics/deploy-your-site",
-        "tutorial-basics/markdown-features"
+        "soumu_docs/create-a-document",
+        "soumu_docs/deploy-your-site",
+        "soumu_docs/markdown-features"
       ]
     },
     {

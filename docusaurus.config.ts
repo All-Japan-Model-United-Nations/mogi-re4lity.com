@@ -8,21 +8,21 @@ dotenv.config();
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'AJMUNdocs-internal',
-  tagline: '事務局関係者向けサイト made by 総務',
+  title: 'AJMUNdocs',
+  tagline: 'AJMUN',
   favicon: 'img/ajmun-logo.png',
 
   // Set the production url of your site here
-  url: 'https://internal-mogi.re4lity.com',
+  url: 'https://mogi.re4lity.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
-  organizationName: 'sudolifeagain', // Usually your GitHub org/user name.
-  projectName: 'soumublog', // Usually your repo name.
-  deploymentBranch: 'gh-pages', // デプロイ先のブランチ名
-  trailingSlash: false, // 末尾のスラッシュを削除
+  organizationName: 'All-Japan-Model-United-Nations', // Usually your GitHub org/user name.
+  projectName: 'mogi-re4lity.com', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -51,7 +51,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
-          editUrl: 'https://github.com/sudolifeagain/soumublog/tree/main/',
+          editUrl: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/tree/main/',
         },
         blog: {
           showReadingTime: true,
@@ -59,7 +59,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          editUrl: 'https://github.com/sudolifeagain/soumublog/tree/main/',
+          editUrl: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -70,9 +70,9 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/ajmun-internal.jpg',
+    image: 'img/ajmun.jpg',
     navbar: {
-      title: 'AJMUNdocs-internal',
+      title: 'AJMUNdocs',
       logo: {
         alt: 'AJMUN Logo',
         src: 'img/ajmun-logo.png',
@@ -86,7 +86,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/sudolifeagain/soumublog',
+          href: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com',
           label: 'GitHub',
           position: 'right',
         },
@@ -112,16 +112,20 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: '35回大会公式HP',
+              href: 'https://ajmun-35th.jimdosite.com/',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: '36回大会公式HP',
+              href: 'https://ajmun-36th.jimdosite.com/',
             },
             {
               label: 'X',
-              href: 'https://x.com/docusaurus',
+              href: 'https://x.com/ajmun_official',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/ajmun_36/',
             },
           ],
         },
@@ -134,12 +138,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/sudolifeagain/soumublog',
+              href: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://git.re4lity.com/">re4lity</a> Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://re4lity.com/">re4lity</a> Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

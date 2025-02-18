@@ -4,45 +4,33 @@ sidebar_position: 1
 
 # Docs・トップ
 
-こちらのページは**AJMUN事務局関係者のみがアクセスできるサイト**となっています.
+このサイトは、2023年末の[35thAJMUN](https://ajmun-35th.jimdosite.com/)と2024年末の[36thAJMUN](https://ajmun-36th.jimdosite.com/)にて総務として運営に参加したメンバーによって運営されています。
 
-## 公開用サイトと何が違うのか
+## 設立の経緯
 
-[公開用サイト](https://mogi.re4lity.com)は主に事務局員のリクルート目的、技術の共有目的で作成しています。
+このサイトを立ち上げた経緯はいくつか存在します。
 
-それに対し本サイトでは、個人情報を含むドキュメントへのアクセスや、ガバナンスから考えて内部のみにとどめておくべき事象をスタックしています。
+- 引継ぎの効率化
+  - 総務経験者が**全員**来年度の運営から引退するため、蓄積したノウハウを参照できる人材がいなくなる可能性が高いです。
+  - このウェブサイトを確認すれば昨年度どうやって運営していたかが一目でわかる状態を目指しています。
+    - ※ここに書かれているやり方が必ず正解というわけではないので、あくまで参考程度に見ていただければ幸いです
 
-### 注意してほしいこと
+- 事務局員の募集を円滑に行うため
+  - どんな仕事をしているのかのイメージが持たれづらいため、実際のマニュアルを公開することで事務局に親しみを持ってもらい、参加しやすくしたいです。
 
-- 以下の点に気を付けてください:
-  - このサイト上の情報をみだりに外部に出さないこと
-  - ドキュメントなどで利用する際はそのドキュメントの閲覧権限を制御すること
+- ノウハウを公開することで模擬国連コミュニティ全体にプラスの影響を与えるため
+  - 他の全国大会(KMUNC、九州SS、北陸)に加え各種有志会議の運営の際にも活用していただければと思います。
 
-## うおおお眠すぎいいいい
+- 静的サイトによるサーバーレス・カスタマイズ可能な形でのサイト運営のノウハウを蓄積するため
+  - 模擬国連は文系が過半数を占めるコミュニティであることもあり、ノーコードツールによるHP構築が大半です。
+  - 独自ドメインを取得しているところもありますが、サーバーサイドの運用などで苦労している例もあります。
+  - できるだけ費用を抑えた形でカスタマイズも可能なHP運用の事例としてこのサイトを運用することを目指しています。
+  - 詳細な技術構成については[Githubリポジトリ](https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com)を参照してください。
 
-Generate a new Docusaurus site using the **classic template**.
+## サイトの構成
 
-The classic template will automatically be added to your project after you run the command:
+このサイトでは主に二つの内容によって構成されます
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+1. 総務の引継ぎ - 実際の総務の引継ぎに使用するために各タスクのマニュアルを公開します。
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+2. 事務局の仕事紹介 - AJMUN事務局全体の仕事を紹介します。

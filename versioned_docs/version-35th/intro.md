@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Docs・トップ
+# トップ
 
 このサイトは、2023年末の[35thAJMUN](https://ajmun-35th.jimdosite.com/)と2024年末の[36thAJMUN](https://ajmun-36th.jimdosite.com/)にて総務として運営に参加したメンバーによって運営されています。
 

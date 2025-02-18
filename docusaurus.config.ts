@@ -9,7 +9,7 @@ dotenv.config();
 
 const config: Config = {
   title: 'AJMUNdocs',
-  tagline: 'AJMUN',
+  tagline: '35回・36回AJMUN総務によるサイト',
   favicon: 'img/ajmun-logo.png',
 
   // Set the production url of your site here

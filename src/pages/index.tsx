@@ -32,7 +32,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="有志による模擬国連全日本大会事務局ウェブサイト">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

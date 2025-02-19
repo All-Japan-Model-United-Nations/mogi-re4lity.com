@@ -103,8 +103,12 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'トップ',
               to: '/docs/intro',
+            },
+            {
+              label: '総務引継ぎ',
+              to: '/docs/soumu_docs/overall',
             },
           ],
         },

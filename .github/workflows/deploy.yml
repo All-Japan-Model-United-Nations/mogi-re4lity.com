@@ -112,12 +112,7 @@ jobs:
             const emoji = status === 'success' ? '✅' : '❌';
             const message = `${emoji} Deploy to production ${status}\n\nCommit: ${context.sha}`;
 
-            const prNumber = context.event.pull_request?.number ||
-              (await github.rest.repos.listPullRequestsAssociatedWithCommit({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                commit_sha: context.sha
-              })).data[0]?.number;
+            const prNumber = context.event.pull_request ? context.event.pull_request.number : null;
 
             if (prNumber) {
               await github.rest.issues.createComment({

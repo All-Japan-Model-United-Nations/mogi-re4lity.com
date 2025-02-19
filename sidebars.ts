@@ -34,14 +34,14 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Tutorial - Extras',
+      label: 'AJMUN事務局について',
       items: [
         {
           type: 'doc',
-          id: 'tutorial-extras/about-this-site',
+          id: 'about_us/about-this-site',
           label: 'このサイトの構造',
         },
-        'tutorial-extras/translate-your-site',
+        'about_us/translate-your-site',
       ],
     },
   ],

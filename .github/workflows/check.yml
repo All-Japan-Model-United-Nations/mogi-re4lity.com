@@ -1,0 +1,58 @@
+name: Check TypeScript and Build on PR
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: |
+        yarn install
+
+    - name: TypeScript type check
+      run: |
+        yarn typecheck > typescript-report.txt || echo "TypeScript type check failed" >> error.log
+
+    - name: Build project
+      run: |
+        yarn build > build-report.txt || echo "Yarn build failed" >> error.log
+
+    - name: Comment Test Results on PR
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          let report = '## Build Test Results\n';
+
+          if (fs.existsSync('typescript-report.txt')) {
+            report += '\n### TypeScript Check\n```\n' +
+              fs.readFileSync('typescript-report.txt', 'utf8') + '\n```\n';
+          }
+
+          if (fs.existsSync('build-report.txt')) {
+            report += '\n### Build Output\n```\n' +
+              fs.readFileSync('build-report.txt', 'utf8') + '\n```\n';
+          }
+
+          // Add the comment to the PR
+          await github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            body: report
+          });

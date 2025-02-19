@@ -1,126 +1,33 @@
-name: CI/CD Pipeline
+name: Deploy Docusaurus Site
 
-# ワークフローのトリガー設定
 on:
-  # devブランチへのプッシュとPRでテストを実行
   push:
     branches:
-      - dev
       - main
-  pull_request:
-    branches:
-      - dev
-      - main
-
-permissions:
-  contents: write
-  pull-requests: write
 
 jobs:
-  # テストジョブ：全てのプッシュとPRで実行
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Run TypeScript type checking
-        run: |
-          yarn typecheck 2>&1 | tee typescript-report.txt
-        continue-on-error: true
-
-      - name: Test build
-        run: |
-          yarn build 2>&1 | tee build-report.txt
-        continue-on-error: true
-
-      # テスト結果をPRにコメント
-      - name: Comment Test Results on PR
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            let report = '## Build Test Results\n';
-
-            if (fs.existsSync('typescript-report.txt')) {
-              report += '\n### TypeScript Check\n```\n' +
-                fs.readFileSync('typescript-report.txt', 'utf8') + '\n```\n';
-            }
-
-            if (fs.existsSync('build-report.txt')) {
-              report += '\n### Build Output\n```\n' +
-                fs.readFileSync('build-report.txt', 'utf8') + '\n```\n';
-            }
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: report
-            });
-
-  # デプロイジョブ：mainブランチへのプッシュ時のみ実行
-  deploy:
-    needs: test  # テストが成功した後にのみ実行
-    if: (github.ref == 'refs/heads/main' && github.event_name == 'push') || (github.event_name == 'pull_request' && github.base_ref == 'main')
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'yarn'
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
 
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build website
-        run: yarn build
+    - name: Run TypeScript type check
+      run: npm run typecheck
 
-      - name: Add CNAME file
-        run: echo "mogi.re4lity.com" > build/CNAME
+    - name: Build the Docusaurus site
+      run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-
-      # デプロイ完了を通知
-      - name: Notify Deploy Status
-        if: always()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const status = '${{ job.status }}';
-            const emoji = status === 'success' ? '✅' : '❌';
-            const message = `${emoji} Deploy to production ${status}\n\nCommit: ${context.sha}`;
-
-            const prNumber = context.event.pull_request ? context.event.pull_request.number : null;
-
-            if (prNumber) {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: prNumber,
-                body: message
-              });
-            } else {
-              console.log("No pull request found for this commit.");
-            }
+    - name: Deploy the site to GitHub Pages
+      run: npm run deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

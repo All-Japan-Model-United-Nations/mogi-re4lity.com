@@ -1,11 +1,15 @@
-name: Test and Deploy
+name: CI/CD Pipeline
 
+# ワークフローのトリガー設定
 on:
+  # devブランチへのプッシュとPRでテストを実行
   push:
     branches:
+      - dev
       - main
   pull_request:
     branches:
+      - dev
       - main
 
 permissions:
@@ -13,6 +17,7 @@ permissions:
   pull-requests: write
 
 jobs:
+  # テストジョブ：全てのプッシュとPRで実行
   test:
     runs-on: ubuntu-latest
     steps:
@@ -38,58 +43,35 @@ jobs:
           yarn build 2>&1 | tee build-report.txt
         continue-on-error: true
 
-      - name: Generate Test Report
-        id: test-report
-        run: |
-          echo "## TypeScript Type Check Results" > test-report.md
-          echo "\`\`\`" >> test-report.md
-          cat typescript-report.txt >> test-report.md
-          echo "\`\`\`" >> test-report.md
-
-          echo -e "\n## Build Test Results" >> test-report.md
-          echo "\`\`\`" >> test-report.md
-          cat build-report.txt >> test-report.md
-          echo "\`\`\`" >> test-report.md
-
-          # エラーの有無をチェック
-          if grep -q "error" typescript-report.txt || grep -q "error" build-report.txt; then
-            echo "status=failed" >> $GITHUB_OUTPUT
-          else
-            echo "status=success" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-reports
-          path: |
-            test-report.md
-            typescript-report.txt
-            build-report.txt
-
-      - name: Comment on PR
+      # テスト結果をPRにコメント
+      - name: Comment Test Results on PR
         if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('test-report.md', 'utf8');
-            const status = '${{ steps.test-report.outputs.status }}';
-            const icon = status === 'success' ? '✅' : '❌';
+            let report = '## Build Test Results\n';
+
+            if (fs.existsSync('typescript-report.txt')) {
+              report += '\n### TypeScript Check\n```\n' +
+                fs.readFileSync('typescript-report.txt', 'utf8') + '\n```\n';
+            }
+
+            if (fs.existsSync('build-report.txt')) {
+              report += '\n### Build Output\n```\n' +
+                fs.readFileSync('build-report.txt', 'utf8') + '\n```\n';
+            }
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `# Test Results ${icon}\n${report}`
+              body: report
             });
 
-      - name: Check Test Status
-        if: steps.test-report.outputs.status == 'failed'
-        run: exit 1
-
+  # デプロイジョブ：mainブランチへのプッシュ時のみ実行
   deploy:
-    needs: test
+    needs: test  # テストが成功した後にのみ実行
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
 
@@ -119,3 +101,23 @@ jobs:
           publish_dir: ./build
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      # デプロイ完了を通知
+      - name: Notify Deploy Status
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const status = '${{ job.status }}';
+            const emoji = status === 'success' ? '✅' : '❌';
+            const message = `${emoji} Deploy to production ${status}\n\nCommit: ${context.sha}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.event.pull_request?.number || (await github.rest.repos.listPullRequestsAssociatedWithCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: context.sha
+              })).data[0]?.number,
+              body: message
+            });

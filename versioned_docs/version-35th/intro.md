@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-description: テスト用のメタタグです(35th version)
+description: このサイトについて
 ---
 
 # トップ

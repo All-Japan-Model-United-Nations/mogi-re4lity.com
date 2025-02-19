@@ -111,13 +111,21 @@ jobs:
             const status = '${{ job.status }}';
             const emoji = status === 'success' ? '✅' : '❌';
             const message = `${emoji} Deploy to production ${status}\n\nCommit: ${context.sha}`;
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.event.pull_request?.number || (await github.rest.repos.listPullRequestsAssociatedWithCommit({
+
+            const prNumber = context.event.pull_request?.number ||
+              (await github.rest.repos.listPullRequestsAssociatedWithCommit({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 commit_sha: context.sha
-              })).data[0]?.number,
-              body: message
-            });
+              })).data[0]?.number;
+
+            if (prNumber) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body: message
+              });
+            } else {
+              console.log("No pull request found for this commit.");
+            }

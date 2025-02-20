@@ -61,19 +61,22 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: |
-        yarn install
+      run: yarn install
 
     - name: TypeScript type check
+      id: typecheck
       run: |
-        yarn typecheck > typescript-report.txt || echo "TypeScript type check failed" >> error.log
+        yarn typecheck 2>&1 | tee typescript-report.txt
+        exit ${PIPESTATUS[0]}
 
     - name: Build project
+      id: build
       run: |
-        yarn build > build-report.txt || echo "Yarn build failed" >> error.log
+        yarn build 2>&1 | tee build-report.txt
+        exit ${PIPESTATUS[0]}
 
     - name: Comment Test Results on PR
-      if: github.event_name == 'pull_request'
+      if: always() && github.event_name == 'pull_request'
       uses: actions/github-script@v7
       with:
         script: |
@@ -90,7 +93,6 @@ jobs:
               fs.readFileSync('build-report.txt', 'utf8') + '\n```\n';
           }
 
-          // Add the comment to the PR
           await github.rest.issues.createComment({
             owner: context.repo.owner,
             repo: context.repo.repo,
@@ -99,6 +101,11 @@ jobs:
           });
 
 ```
+
+コメント：[checkで拾いたいプルリクエスト by sudolifeagain · Pull Request #34](https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/pull/34)  
+実際にこちらで絶対デプロイさせたくない編集を含んだプルリクエストを作成し、チェック段階で弾けることを確認しています。
+
+
 ## deploy
 ソースコードはこちら：[mogi-re4lity.com/.github/workflows/deploy.yml at main](https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/blob/main/.github/workflows/deploy.yml)
 

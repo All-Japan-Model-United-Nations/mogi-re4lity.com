@@ -69,6 +69,14 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'announcement',
+      content:
+        '本サイトは構築途中です。内容が不正確であったり、不十分であったりする場合があります。',
+      backgroundColor: '#87cefa',
+      textColor: '#091E42',
+      isCloseable: true,
+    },
     // Replace with your project's social card
     image: 'img/ajmun.jpg',
     navbar: {

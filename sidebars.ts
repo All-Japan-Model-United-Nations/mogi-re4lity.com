@@ -19,7 +19,16 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '総務引継ぎ',
       items: [
-        'soumu_docs/overall',
+        {
+          type: 'doc',
+          id: 'soumu_docs/overall',
+          label: 'はじめに',
+        },
+        {
+          type: 'doc',
+          id: 'soumu_docs/create-a-youkou',
+          label: '大会要綱',
+        },
         'soumu_docs/congratulations',
         'soumu_docs/create-a-blog-post',
         {
@@ -27,7 +36,7 @@ const sidebars: SidebarsConfig = {
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',
         },
-        'soumu_docs/create-a-document',
+
         'soumu_docs/deploy-your-site',
         'soumu_docs/markdown-features',
       ],

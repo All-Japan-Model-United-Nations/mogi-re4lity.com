@@ -1,5 +1,5 @@
 ---
-slug: welcome
+slug: github-actions
 title: 本サイトの開発で用いているGithub Actionsの紹介
 authors: [re4lity]
 tags: [Github Actions, CI/CD]

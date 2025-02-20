@@ -17,3 +17,14 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+
+Github Actions:
+  label: Github Actions
+  permalink: /Github-Actions
+  description: Github Actionsについての記事
+
+CI/CD:
+  label: CI/CD
+  permalink: /CI-CD
+  description: CI/CDについての記事

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksoumublog=self.webpackChunksoumublog||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"\u672c\u30b5\u30a4\u30c8\u306e\u958b\u767a\u3067\u7528\u3044\u3066\u3044\u308bGithub Actions\u306e\u7d39\u4ecb","permalink":"/blog/github-actions","unlisted":false,"date":"2025-02-21T00:00:00.000Z"}]}')}}]);

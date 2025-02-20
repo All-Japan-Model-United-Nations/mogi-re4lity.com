@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksoumublog=self.webpackChunksoumublog||[]).push([[8121],{8070:s=>{s.exports=JSON.parse('{"tags":[{"label":"Github Actions","permalink":"/blog/tags/github-actions","count":1},{"label":"CI/CD","permalink":"/blog/tags/ci-cd","count":1}]}')}}]);

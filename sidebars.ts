@@ -26,15 +26,19 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
+          id: 'soumu_docs/human-resources',
+          label: '事務局員募集',
+        },
+        {
+          type: 'doc',
           id: 'soumu_docs/create-a-youkou',
           label: '大会要綱',
         },
         {
           type: 'doc',
-          id: 'soumu_docs/human-resources',
-          label: '事務局員募集に関して',
+          id: 'soumu_docs/discord',
+          label: 'Discord運用',
         },
-        'soumu_docs/congratulations',
         {
           type: 'link',
           label: '🔒 Contact',

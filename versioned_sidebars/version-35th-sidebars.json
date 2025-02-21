@@ -15,9 +15,13 @@
           "id": "soumu_docs/create-a-youkou",
           "label": "大会要綱"
         },
-
+        {
+          "type": "doc",
+          "id": "soumu_docs/human-resources",
+          "label": "事務局員募集に関して"
+        },
         "soumu_docs/congratulations",
-        "soumu_docs/create-a-blog-post",
+
         {
           "type": "link",
           "label": "🔒 Contact",

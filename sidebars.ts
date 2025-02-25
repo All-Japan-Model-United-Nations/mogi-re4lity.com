@@ -61,6 +61,17 @@ const sidebars: SidebarsConfig = {
         'about_us/translate-your-site',
       ],
     },
+    {
+      type: 'category',
+      label: '開発',
+      items: [
+        {
+          type: 'doc',
+          id: 'contribution/setting-up',
+          label: '開発/環境のセットアップ',
+        },
+      ],
+    },
   ],
 };
 

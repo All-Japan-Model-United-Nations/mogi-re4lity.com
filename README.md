@@ -1,18 +1,17 @@
 # Website
 
-このwebサイトは [Docusaurus](https://docusaurus.io/)を使用し構築しています。
+このwebサイトは [Docusaurus](https://docusaurus.io/)を使用し構築しています。以下にAIを用いてステップバイステップの開発手順書を作成したので、参考にしてください。
 
-## 開発を始める
+## Docusaurus開発環境構築ガイド (Windows/Yarn)
 
-# Docusaurus開発環境構築ガイド (Windows)
-
-このガイドでは、Windows環境でのDocusaurus開発環境の構築方法を初心者向けに解説します。GitHubリポジトリ「All-Japan-Model-United-Nations/mogi-re4lity.com」を使った開発ワークフローも含みます。
+このガイドでは、Windows環境でのDocusaurus開発環境の構築方法を初心者向けに解説します。GitHubリポジトリ「All-Japan-Model-United-Nations/mogi-re4lity.com」を使った開発ワークフローも含みます。パッケージマネージャとして**Yarn**を使用します。
 
 ## 目次
 
 1. [基本ツールのインストール](#基本ツールのインストール)
    - Git
    - Node.js
+   - Yarn
    - Visual Studio Code
 2. [リポジトリのクローン](#リポジトリのクローン)
 3. [開発環境の設定](#開発環境の設定)
@@ -39,18 +38,35 @@
    - その他のオプション: デフォルト設定でOK
 
 3. インストール完了後、Windows PowerShellを開いて動作確認:
-```
+
+```bash
 git --version
 ```
 
 ### Node.js
 
-1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード
+1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 18.0以上が必要）
+
 2. インストーラーを実行し、デフォルト設定で進める
+
 3. インストール完了後、Windows PowerShellを開いて動作確認:
-```
+
+```bash
 node --version
-npm --version
+```
+
+### Yarn
+
+1. Windows PowerShellを管理者権限で開き、以下のコマンドを実行:
+
+```bash
+npm install -g yarn
+```
+
+2. インストール完了後、動作確認:
+
+```bash
+yarn --version
 ```
 
 ### Visual Studio Code
@@ -70,25 +86,29 @@ npm --version
 ## リポジトリのクローン
 
 1. Windows PowerShellを開き、ソースコードを保存したいディレクトリに移動:
-```
+
+```bash
 cd C:\Users\ユーザー名\Documents
 mkdir Projects
 cd Projects
 ```
 
 2. GitHubリポジトリをクローン:
-```
+
+```bash
 git clone https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com.git
 cd mogi-re4lity.com
 ```
 
 3. リモートブランチの確認:
-```
+
+```bash
 git branch -a
 ```
 
 4. 開発用の`dev`ブランチに切り替え:
-```
+
+```bash
 git checkout dev
 ```
 
@@ -96,18 +116,23 @@ git checkout dev
 
 1. 必要なパッケージをインストール:
 ```
-npm install
+yarn install
 ```
 
 2. 開発サーバーを起動してプロジェクトを実行:
 ```
-npm start
+yarn start
 ```
   ブラウザが自動的に開き、`http://localhost:3000`でサイトが表示されます。
 
 3. ビルドテスト(必要に応じて):
 ```
-npm run build
+yarn build
+```
+
+4. ローカルでビルド結果を確認:
+```
+yarn serve
 ```
 
 ## 開発ワークフロー
@@ -118,8 +143,10 @@ npm run build
 
 - `main`: 本番環境に反映される安定版のコードを保持するブランチ
 - `dev`: 開発作業を行うブランチ
+- `gh-pages`: ビルドによって生成されたファイル用のブランチ
 
 ブランチを分ける理由:
+
 - 本番環境の安定性を保つため
 - 複数人での並行開発を可能にするため
 - コードレビューを効率的に行うため
@@ -195,13 +222,27 @@ git push origin ブランチ名
 2. プルリクエストが承認されると、`main`ブランチにマージされます
 3. GitHub Actionsにより自動的にビルドとデプロイが実行されます
 
+## GitHub Actionsによる自動デプロイ
+
+このリポジトリでは、`main`ブランチに変更がマージされると、GitHub Actionsによって自動的にビルドとデプロイが実行されます。この自動化により、以下のメリットがあります:
+
+- デプロイ作業の手間を省ける
+- デプロイのミスを防止できる
+- 常に最新のコードが本番環境に反映される
+
+実際のデプロイ処理は、package.jsonの以下のスクリプトに基づいています:
+
+```json
+"deploy": "docusaurus build && echo mogi.re4lity.com > build/CNAME && gh-pages -d build"
+```
+
 ## よくある問題と解決策
 
 ### Node.jsのバージョンエラー
 
 package.jsonで指定されているNode.jsのバージョン(>=18.0)と異なるバージョンを使用している場合:
 
-```
+``` bash
 nvm install 18
 nvm use 18
 ```
@@ -210,9 +251,9 @@ NVMがインストールされていない場合は[NVM for Windows](https://git
 
 ### パッケージインストールエラー
 
-```
-npm cache clean --force
-npm install
+```bash
+yarn cache clean
+yarn install
 ```
 
 ### gitコマンドが見つからないエラー
@@ -221,9 +262,19 @@ PATHが正しく設定されていない可能性があります。Git for Windo
 
 ### ポート3000が既に使用されている
 
+```bash
+yarn start --port 3001
 ```
-npm start -- --port=3001
-```
+
+### Docusaurusの基本コマンド
+
+よく使うDocusaurusのコマンドは次の通りです（Yarn版）:
+
+- 開発サーバー起動: `yarn start`
+- ビルド: `yarn build`
+- ビルド結果をローカルで確認: `yarn serve`
+- キャッシュクリア: `yarn clear`
+- 型チェック実行: `yarn typecheck`
 
 ---
 

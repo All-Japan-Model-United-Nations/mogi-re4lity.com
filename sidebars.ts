@@ -44,9 +44,6 @@ const sidebars: SidebarsConfig = {
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',
         },
-
-        'soumu_docs/deploy-your-site',
-        'soumu_docs/markdown-features',
       ],
     },
     {

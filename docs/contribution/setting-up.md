@@ -1,6 +1,8 @@
-# Website
+# 開発環境のセットアップ
 
 このwebサイトは [Docusaurus](https://docusaurus.io/)を使用し構築しています。以下にAIを用いてステップバイステップの開発手順書を作成したので、参考にしてください。
+
+※Githubリポジトリのreadmeと内容は同一です。
 
 ## Docusaurus開発環境構築ガイド (Windows/Yarn)
 
@@ -9,16 +11,16 @@
 ## 目次
 
 1. [基本ツールのインストール](#基本ツールのインストール)
-   - Git
-   - Node.js
-   - Yarn
-   - Visual Studio Code
+    - Git
+    - Node.js
+    - Yarn
+    - Visual Studio Code
 2. [リポジトリのクローン](#リポジトリのクローン)
 3. [開発環境の設定](#開発環境の設定)
 4. [開発ワークフロー](#開発ワークフロー)
-   - ブランチの作成と切り替え
-   - 変更の追跡とコミット
-   - プルリクエストの作成
+    - ブランチの作成と切り替え
+    - 変更の追跡とコミット
+    - プルリクエストの作成
 5. [よくある問題と解決策](#よくある問題と解決策)
 
 ## 基本ツールのインストール
@@ -27,15 +29,15 @@
 
 1. [Git公式サイト](https://git-scm.com/download/win)からWindows用インストーラーをダウンロード
 2. インストーラーを実行し、以下の設定で進める:
-   - コンポーネント選択: デフォルト設定でOK
-   - エディタ選択: 「Use Visual Studio Code as Git's default editor」を選択
-   - PATH環境変数: 「Git from the command line and also from 3rd-party software」を選択
-   - HTTPS転送バックエンド: OpenSSL library
-   - 改行コンバーション: 「Checkout Windows-style, commit Unix-style line endings」を選択
-   - ターミナルエミュレータ: MinTTYを選択
-   - `git pull`の動作: デフォルト設定(fast-forward or merge)
-   - 認証情報ヘルパー: Git Credential Manager
-   - その他のオプション: デフォルト設定でOK
+    - コンポーネント選択: デフォルト設定でOK
+    - エディタ選択: 「Use Visual Studio Code as Git's default editor」を選択
+    - PATH環境変数: 「Git from the command line and also from 3rd-party software」を選択
+    - HTTPS転送バックエンド: OpenSSL library
+    - 改行コンバーション: 「Checkout Windows-style, commit Unix-style line endings」を選択
+    - ターミナルエミュレータ: MinTTYを選択
+    - `git pull`の動作: デフォルト設定(fast-forward or merge)
+    - 認証情報ヘルパー: Git Credential Manager
+    - その他のオプション: デフォルト設定でOK
 
 3. インストール完了後、Windows PowerShellを開いて動作確認:
 
@@ -73,15 +75,15 @@ yarn --version
 
 1. [Visual Studio Code公式サイト](https://code.visualstudio.com/)からインストーラーをダウンロード
 2. インストーラーを実行し、以下のオプションを選択:
-   - デスクトップにアイコンを作成
-   - エクスプローラーのコンテキストメニューに「Code で開く」を追加
-   - PATHへの追加
+    - デスクトップにアイコンを作成
+    - エクスプローラーのコンテキストメニューに「Code で開く」を追加
+    - PATHへの追加
 
 3. インストール完了後、VS Codeを起動し、以下の拡張機能をインストール:
-   - ESLint
-   - Prettier
-   - GitLens
-   - MDX
+    - ESLint
+    - Prettier
+    - GitLens
+    - MDX
 
 ## リポジトリのクローン
 
@@ -217,8 +219,8 @@ git push origin ブランチ名
 開発が一定段階に達し、本番環境にリリースする準備ができたら:
 
 1. `dev`ブランチから`main`ブランチへのプルリクエストを作成:
-   - ベースブランチとして`main`を選択
-   - 比較ブランチとして`dev`を選択
+    - ベースブランチとして`main`を選択
+    - 比較ブランチとして`dev`を選択
 2. プルリクエストが承認されると、`main`ブランチにマージされます
 3. GitHub Actionsにより自動的にビルドとデプロイが実行されます
 

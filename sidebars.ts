@@ -44,9 +44,6 @@ const sidebars: SidebarsConfig = {
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',
         },
-
-        'soumu_docs/deploy-your-site',
-        'soumu_docs/markdown-features',
       ],
     },
     {
@@ -59,6 +56,17 @@ const sidebars: SidebarsConfig = {
           label: 'このサイトの構造',
         },
         'about_us/translate-your-site',
+      ],
+    },
+    {
+      type: 'category',
+      label: '開発',
+      items: [
+        {
+          type: 'doc',
+          id: 'contribution/setting-up',
+          label: '開発/環境のセットアップ',
+        },
       ],
     },
   ],

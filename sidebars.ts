@@ -18,12 +18,11 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '総務引継ぎ',
+      link: {
+        type: "doc",
+          id: "soumu_docs/overall",
+             },
       items: [
-        {
-          type: 'doc',
-          id: 'soumu_docs/overall',
-          label: 'はじめに',
-        },
         {
           type: 'doc',
           id: 'soumu_docs/human-resources',

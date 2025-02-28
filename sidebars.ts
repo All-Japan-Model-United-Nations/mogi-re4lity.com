@@ -40,6 +40,46 @@ const sidebars: SidebarsConfig = {
           label: 'Discord運用',
         },
         {
+          type: 'doc',
+          id: 'soumu_docs/items',
+          label: '備品管理',
+        },
+        {
+          type: 'doc',
+          id: 'soumu_docs/placard',
+          label: 'プラカード',
+        }, 
+        {
+          type: 'doc',
+          id: 'soumu_docs/layout',
+          label: 'レイアウト',
+        },       
+        {
+          type: 'doc',
+          id: 'soumu_docs/zimu-apply',
+          label: '事務編アプライフォーム',
+        },    
+        {
+          type: 'doc',
+          id: 'soumu_docs/document-for-minor',
+          label: '未成年者の大会参加について',
+        },    
+        {
+          type: 'doc',
+          id: 'soumu_docs/award',
+          label: 'アワード',
+        },
+        {
+          type: 'doc',
+          id: 'soumu_docs/namecard',
+          label: 'ネームカード',
+        },
+        {
+          type: 'doc',
+          id: 'soumu_docs/signage',
+          label: '吊り看板',
+        },
+       {
           type: 'link',
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',

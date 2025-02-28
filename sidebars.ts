@@ -92,10 +92,19 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'doc',
+          id: 'about_us/about-mogi',
+          label: '模擬国連とは',
+        },
+        {
+          type: 'doc',
+          id: 'about_us/about-AJMUN',
+          label: 'AJMUNについて',
+        },
+        {
+          type: 'doc',
           id: 'about_us/about-this-site',
           label: 'このサイトの構造',
         },
-        'about_us/translate-your-site',
       ],
     },
     {

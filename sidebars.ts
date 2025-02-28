@@ -51,7 +51,7 @@ const sidebars: SidebarsConfig = {
         }, 
         {
           type: 'doc',
-          id: 'soumu_docs/layoout',
+          id: 'soumu_docs/layoot',
           label: 'レイアウト',
         },       
         {

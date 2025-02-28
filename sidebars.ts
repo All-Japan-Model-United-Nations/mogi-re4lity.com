@@ -95,7 +95,6 @@ const sidebars: SidebarsConfig = {
           id: 'about_us/about-this-site',
           label: 'このサイトの構造',
         },
-        'about_us/translate-your-site',
       ],
     },
     {

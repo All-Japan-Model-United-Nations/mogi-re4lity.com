@@ -9,17 +9,20 @@ tags: [Github Actions, CI/CD]
 <!-- truncate -->
 
 ## 開発フローについて
+
 まず、本サイトのGit運用について説明します。
 
 ### ブランチ構成
-本サイトはmainブランチ、devブランチ、gh-pagesブランチの3つを運用しています。  
+
+本サイトはmainブランチ、devブランチ、gh-pagesブランチの3つを運用しています。
 以下のように用途を切り分けています。
+
 - devブランチ
-    - 開発用ブランチ
+  - 開発用ブランチ
 - mainブランチ
-    - 本番環境のデプロイ元
+  - 本番環境のデプロイ元
 - gh-pagesブランチ
-    - 静的サイト生成用ブランチ
+  - 静的サイト生成用ブランチ
 
 ### 開発の流れ
 
@@ -37,7 +40,9 @@ tags: [Github Actions, CI/CD]
 
 
 ## check
+
 ソースコードはこちら：[mogi-re4lity.com/.github/workflows/check.yml at main](https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/blob/main/.github/workflows/check.yml)
+
 ```yml title=".github/workflow/check.yml"
 name: Check TypeScript and Build on PR
 
@@ -107,6 +112,7 @@ jobs:
 
 
 ## deploy
+
 ソースコードはこちら：[mogi-re4lity.com/.github/workflows/deploy.yml at main](https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/blob/main/.github/workflows/deploy.yml)
 
 ```yml title=".github/workflow/deploy.yml"
@@ -152,6 +158,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 ```
-コメント：最初はローカルでデプロイしている時にユーザー認証がバックグラウンドで渡されていることを知らず、github-tokenを含んだ git remote set-url origin ~~ を渡していませんでした。ChatGPT君、Claude君ありがとう。  
-check.ymlでも行ったbuildコマンドをこちらでも実行しているのは重複なので省いてもよいかな～～と思っております。一番下のnpm run deployで同じ操作含まれていると思うし...  
+
+コメント：最初はローカルでデプロイしている時にユーザー認証がバックグラウンドで渡されていることを知らず、github-tokenを含んだ git remote set-url origin ~~ を渡していませんでした。ChatGPT君、Claude君ありがとう。
+
+check.ymlでも行ったbuildコマンドをこちらでも実行しているのは重複なので省いてもよいかな～～と思っております。一番下のnpm run deployで同じ操作含まれていると思うし...
+
 時間があったら該当コードを削除して検証してみようと思っています。

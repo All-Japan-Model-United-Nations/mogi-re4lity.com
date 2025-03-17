@@ -20,8 +20,8 @@ const sidebars: SidebarsConfig = {
       label: '総務引継ぎ',
       link: {
         type: "doc",
-          id: "soumu_docs/overall",
-             },
+        id: "soumu_docs/overall",
+      },
       items: [
         {
           type: 'doc',
@@ -32,6 +32,17 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'soumu_docs/create-a-youkou',
           label: '大会要綱',
+        },
+        {
+          type: 'category',
+          label: '情報管理',
+          items: [
+            {
+              type: 'doc',
+              id: 'soumu_docs/data/type',
+              label: '総務が扱う情報',
+            },
+          ],
         },
         {
           type: 'doc',
@@ -47,22 +58,22 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'soumu_docs/placard',
           label: 'プラカード',
-        }, 
+        },
         {
           type: 'doc',
           id: 'soumu_docs/layout',
           label: 'レイアウト',
-        },       
+        },
         {
           type: 'doc',
           id: 'soumu_docs/zimu-apply',
           label: '事務編アプライフォーム',
-        },    
+        },
         {
           type: 'doc',
           id: 'soumu_docs/document-for-minor',
           label: '未成年者の大会参加について',
-        },    
+        },
         {
           type: 'doc',
           id: 'soumu_docs/award',
@@ -78,7 +89,7 @@ const sidebars: SidebarsConfig = {
           id: 'soumu_docs/signage',
           label: '吊り看板',
         },
-       {
+        {
           type: 'link',
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',

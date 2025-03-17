@@ -41,3 +41,53 @@ description: このサイトについて
 
 事務局員内部向けに、アクセス制限を掛けた別のサイトも並行して立ち上げています。
 
+
+import React, { useEffect, useState } from 'react';
+
+## GitHub 最新の更新情報
+
+GitHubの直近の5件ぶんの更新情報を表示します。
+
+<div id="commits">
+    <LatestCommits />
+</div>
+
+export function LatestCommits() {
+    const [commits, setCommits] = useState([]);
+    const repoOwner = "All-Japan-Model-United-Nations";
+    const repoName = "mogi-re4lity.com";
+    const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/commits`;
+
+    useEffect(() => {
+        async function fetchCommits() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`GitHub API エラー: ${response.status}`);
+                }
+                const commitsData = await response.json();
+                setCommits(commitsData.slice(0, 5)); // 最新5件を取得
+            } catch (error) {
+                console.error("API エラー:", error);
+            }
+        }
+        fetchCommits();
+    }, []);
+
+    return (
+        <div>
+            {commits.length > 0 ? (
+                commits.map((commit, index) => (
+                    <div key={index} style={{ padding: "10px", border: "1px solid #ddd", borderRadius: "5px", marginBottom: "10px" }}>
+                        <p><strong>メッセージ:</strong> {commit.commit.message}</p>
+                        <p><strong>担当者:</strong> {commit.commit.author.name}</p>
+                        <p><strong>日時:</strong> {new Date(commit.commit.author.date).toLocaleString()}</p>
+                        <p><a href={commit.html_url} target="_blank" rel="noopener noreferrer">詳細を見る</a></p>
+                    </div>
+                ))
+            ) : (
+                <p>最新のコミットを取得中...</p>
+            )}
+        </div>
+    );
+}

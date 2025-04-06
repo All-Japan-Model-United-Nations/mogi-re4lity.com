@@ -1,0 +1,9 @@
+Stable:
+  label: 'Stable'
+  permalink: '/stable'
+  description: '内容の精査が完了したドキュメント'
+
+Unstable:
+  label: 'Unstable'
+  permalink: '/unstable'
+  description: 'まだ編集途中のドキュメント'

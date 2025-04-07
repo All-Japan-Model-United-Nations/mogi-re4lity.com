@@ -1,0 +1,106 @@
+name: Notify Discord on PR Merge to main
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  notify-discord:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get PR Commits
+        uses: actions/github-script@v7
+        id: get_commits
+        with:
+          result-encoding: string
+          script: |
+            const pr = context.payload.pull_request;
+            const commits = await github.rest.pulls.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pr.number
+            });
+
+            const embedPromises = commits.data.map(async (commit, index) => {
+              const title = commit.commit.message.split('\n')[0];
+              const timestamp = commit.commit.committer.date;
+
+              const commentsRes = await github.rest.repos.listCommentsForCommit({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: commit.sha
+              });
+
+              const commentTexts = commentsRes.data.map(c => `💬 ${c.user.login}: ${c.body}`).join('\n');
+
+              return {
+                id: Math.floor(Math.random() * 1000000000),
+                title,
+                description: (commentTexts ? `\n\n${commentTexts}` : ""),
+                color: 16762624,
+                fields: [],
+                footer: {
+                  text: "AJMUN-36th",
+                  icon_url: "https://mogi.re4lity.com/img/ajmun-logo.png"
+                },
+                url: commit.html_url,
+                timestamp: timestamp
+              };
+            });
+
+            const embeds = await Promise.all(embedPromises);
+            return JSON.stringify(embeds);
+
+      - name: Send Silent Embed to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          EMBEDS_JSON: ${{ steps.get_commits.outputs.result }}
+        run: |
+          echo "$EMBEDS_JSON" > embeds.json
+
+          # Create the content with proper newlines directly in the JSON
+          cat > payload.json << EOF
+          {
+            "content": "@hogehoge [公開用サイトの本番環境](https://mogi.re4lity.com/)で更新がありました。",
+            "tts": false,
+            "flags": 4096,
+            "embeds": $(cat embeds.json),
+            "components": [],
+            "actions": {},
+            "username": "[総務]サイト更新通知",
+            "avatar_url": "https://avatars.githubusercontent.com/u/179259344?v=4"
+          }
+          EOF
+
+          curl -X POST "$DISCORD_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            --data @payload.json
+
+      - name: Send Silent Embed to Discord 2
+        env:
+          DISCORD_WEBHOOK_URL2: ${{ secrets.DISCORD_WEBHOOK_URL2 }}
+          EMBEDS_JSON: ${{ steps.get_commits.outputs.result }}
+        run: |
+          echo "$EMBEDS_JSON" > embeds.json
+
+          # Create the content with proper newlines directly in the JSON
+          cat > payload.json << EOF
+          {
+            "content": "@hogehoge [公開用サイトの本番環境](https://mogi.re4lity.com/)で更新がありました。",
+            "tts": false,
+            "flags": 4096,
+            "embeds": $(< embeds.json),
+            "components": [],
+            "actions": {},
+            "username": "[総務]サイト更新通知",
+            "avatar_url": "https://avatars.githubusercontent.com/u/179259344?v=4"
+          }
+          EOF
+
+          curl -X POST "$DISCORD_WEBHOOK_URL2" \
+            -H "Content-Type: application/json" \
+            --data @payload.json

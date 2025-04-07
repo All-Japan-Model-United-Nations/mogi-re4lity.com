@@ -65,7 +65,7 @@ jobs:
           # Create the content with proper newlines directly in the JSON
           cat > payload.json << EOF
           {
-            "content": "@hogehoge [公開用サイトの本番環境](https://mogi.re4lity.com/)で更新がありました。",
+            "content": "[公開用サイトの本番環境](https://mogi.re4lity.com/)で更新がありました。",
             "tts": false,
             "flags": 4096,
             "embeds": $(cat embeds.json),
@@ -90,7 +90,7 @@ jobs:
           # Create the content with proper newlines directly in the JSON
           cat > payload.json << EOF
           {
-            "content": "@hogehoge [公開用サイトの本番環境](https://mogi.re4lity.com/)で更新がありました。",
+            "content": "[公開用サイトの本番環境](https://mogi.re4lity.com/)で更新がありました。",
             "tts": false,
             "flags": 4096,
             "embeds": $(< embeds.json),

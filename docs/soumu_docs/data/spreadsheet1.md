@@ -40,6 +40,6 @@ tags: [Unstable]
     - [「有効アプライ」タブ](/docs/soumu_docs/data/spreadsheet/zimu2)
     - [「無効・キャンセル済み」タブ](/docs/soumu_docs/data/spreadsheet/zimu3)
 
-- [「当セク当スタ募集」タブ](内部用サイトで閲覧可能)
+- 「当セク当スタ募集」タブ(内部用サイトで閲覧可能)
     - 当セク当スタ募集のフォームの回答を収集するタブ
     - 詳しくは[当セク当スタページ](/docs/soumu_docs/temp-staff)を参照してください

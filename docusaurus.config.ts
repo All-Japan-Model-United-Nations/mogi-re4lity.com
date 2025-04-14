@@ -94,8 +94,8 @@ const config: Config = {
         },
         {to: '/blog', label: 'ブログ', position: 'left'},
         {
-          href: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com',
-          label: 'GitHub',
+          href: 'https://internal-mogi.re4lity.com/',
+          label: '関係者向けサイト',
           position: 'right',
         },
         {

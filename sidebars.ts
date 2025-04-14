@@ -30,7 +30,7 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'soumu_docs/create-a-youkou',
+          id: 'soumu_docs/youkou',
           label: '大会要綱',
         },
         {

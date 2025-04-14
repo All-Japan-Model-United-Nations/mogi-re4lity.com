@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunksoumublog=self.webpackChunksoumublog||[]).push([[9067],{9187:s=>{s.exports=JSON.parse('{"tags":[{"label":"Unstable","permalink":"/docs/tags/unstable","count":3},{"label":"Stable","permalink":"/docs/tags/stable","count":1}]}')}}]);

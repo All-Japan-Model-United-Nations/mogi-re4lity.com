@@ -8,35 +8,34 @@ type FeatureItem = {
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
 };
-
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: '総務のノウハウ共有',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        第35回、第36回大会を通じて総務として参画した人材が運営しています。<br />
+        豊富なノウハウをこのサイトを通して提供します。
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'ウェブサイトからのアクセス',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Googleドキュメントではなくウェブサイトで展開することで、<br />
+        誰でも簡単にアクセスできるようにしています。<br />
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'オープンソースでの開発',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Docusaurusというオープンソースのプロジェクトを利用し、<br />
+        カスタマイズ性の高いウェブサイトを構築しています。
       </>
     ),
   },

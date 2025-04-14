@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+tags: [Unstable]
 ---
 
 # 事務局員募集に際して

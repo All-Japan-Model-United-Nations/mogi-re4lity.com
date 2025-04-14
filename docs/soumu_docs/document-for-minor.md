@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+tags: [Unstable]
 ---
 
 # 未成年者の大会参加について

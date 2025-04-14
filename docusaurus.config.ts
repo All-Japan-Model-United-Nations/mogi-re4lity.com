@@ -49,6 +49,7 @@ const config: Config = {
     [
       'classic',
       {
+        sitemap: {},
         docs: {
           sidebarPath: require.resolve('./sidebars.ts'),
           editUrl: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com/tree/main/',

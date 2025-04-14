@@ -34,6 +34,11 @@ const sidebars: SidebarsConfig = {
           label: '大会要綱',
         },
         {
+          type: 'doc',
+          id: 'soumu_docs/privacy-policy',
+          label: 'プライバシーポリシー',
+        },
+        {
           type: 'category',
           label: '情報管理',
           items: [

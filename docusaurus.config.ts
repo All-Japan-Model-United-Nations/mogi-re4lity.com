@@ -95,7 +95,7 @@ const config: Config = {
         {to: '/blog', label: 'ブログ', position: 'left'},
         {
           href: 'https://internal-mogi.re4lity.com/',
-          label: '関係者用サイト',
+          label: '内部用サイト',
           position: 'right',
         },
       ],

@@ -23,7 +23,7 @@ tags: [Stable]
 36thではフロントに依頼する必要があったため、詳細なマニュアルを作成しました。
 
 :::tip[備考]
-[大会関係者用サイト](https://internal-mogi.re4lity.com/docs/soumu_docs/namecard)では、Googleドキュメント版のリンクを添付しています。
+[内部用サイト](https://internal-mogi.re4lity.com/docs/soumu_docs/namecard)では、Googleドキュメント版のリンクを添付しています。
 :::
 
 このサイト上でも同一の内容を表示しておきます<br />

@@ -39,17 +39,43 @@ const sidebars: SidebarsConfig = {
           label: 'プライバシーポリシー',
         },
         {
-          type: 'category',
-          label: '情報管理',
+          type:'category',
+          label: '個別シートの解説',
+          link: {
+            type: 'doc',
+            id: 'soumu_docs/data/spreadsheet/overall',
+          },
           items: [
             {
               type: 'doc',
-              id: 'soumu_docs/data/type',
-              label: '総務が扱う情報',
+              id: 'soumu_docs/data/spreadsheet/zimu1',
+              label: '事務編シート-全データ'
             },
-          ],
-        },
-        {
+            {
+              type: 'doc',
+              id: 'soumu_docs/data/spreadsheet/zimu2',
+              label: '事務編シート-有効アプライ'
+            },
+            {
+              type: 'doc',
+              id: 'soumu_docs/data/spreadsheet/zimu3',
+              label: '事務編シート-無効・キャンセル済み'
+            },
+            {
+              type: 'doc',
+              id: 'soumu_docs/data/spreadsheet/zimu4',
+              label: '事務編シート-渉外展開用(メール配信)'
+            },
+            {
+              type: 'doc',
+              id: 'soumu_docs/data/spreadsheet/zimu5',
+              label: '事務編シート-広報展開用(写真許可)'
+            }
+          ]
+        }
+      ],
+    },
+    {
           type: 'doc',
           id: 'soumu_docs/discord',
           label: 'Discord運用',

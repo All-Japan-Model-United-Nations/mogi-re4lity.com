@@ -9,7 +9,7 @@ dotenv.config();
 
 const config: Config = {
   title: 'AJMUNdocs',
-  tagline: '35回・36回AJMUN総務によるサイト',
+  tagline: '35回・36回AJMUN総務有志によるサイト',
   favicon: 'img/ajmun-logo.png',
 
   // Set the production url of your site here
@@ -90,16 +90,12 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'ドキュメント',
+          label: '総務引継ぎ書類',
         },
         {to: '/blog', label: 'ブログ', position: 'left'},
         {
-          href: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com',
-          label: 'GitHub',
-          position: 'right',
-        },
-        {
-          type: 'docsVersionDropdown',
+          href: 'https://internal-mogi.re4lity.com/',
+          label: '内部用サイト',
           position: 'right',
         },
       ],
@@ -108,49 +104,25 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'サイト内リンク',
           items: [
             {
-              label: 'トップ',
+              label: '総務引継ぎ書類',
               to: '/docs/intro',
             },
             {
-              label: '総務引継ぎ',
-              to: '/docs/soumu_docs/overall',
-            },
-          ],
-        },
-        {
-          title: 'Links',
-          items: [
-            {
-              label: '35回大会公式HP',
-              href: 'https://ajmun-35th.jimdosite.com/',
-            },
-            {
-              label: '36回大会公式HP',
-              href: 'https://ajmun-36th.jimdosite.com/',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/ajmun_official',
-            },
-            {
-              label: 'Instagram',
-              href: 'https://www.instagram.com/ajmun_36/',
+              label: 'ブログ',
+              to: '/blog',
             },
           ],
         },
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
+
             {
               label: 'GitHub',
-              href: 'https://github.com/All-Japan-Model-United-Nations/mogi-re4lity.com',
+              href: 'https://github.com/sudolifeagain/soumublog',
             },
           ],
         },
@@ -158,7 +130,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://re4lity.com/">re4lity</a> Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.github,  
       darkTheme: prismThemes.dracula,
     },
     i18n: {

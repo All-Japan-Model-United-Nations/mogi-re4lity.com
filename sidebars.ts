@@ -30,8 +30,13 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: 'doc',
-          id: 'soumu_docs/create-a-youkou',
+          id: 'soumu_docs/youkou',
           label: '大会要綱',
+        },
+        {
+          type: 'doc',
+          id: 'soumu_docs/privacy-policy',
+          label: 'プライバシーポリシー',
         },
         {
           type: 'category',
@@ -42,6 +47,46 @@ const sidebars: SidebarsConfig = {
               id: 'soumu_docs/data/type',
               label: '総務が扱う情報',
             },
+            {
+              type: 'doc',
+              id: 'soumu_docs/data/spreadsheet1',
+              label: '個人情報シート',
+            },
+            {
+              type:'category',
+              label: '個別シートの解説',
+              link: {
+                type: 'doc',
+                id: 'soumu_docs/data/spreadsheet/overall',
+              },
+              items: [
+                {
+                  type: 'doc',
+                  id: 'soumu_docs/data/spreadsheet/zimu1',
+                  label: '事務編シート-全データ'
+                },
+                {
+                  type: 'doc',
+                  id: 'soumu_docs/data/spreadsheet/zimu2',
+                  label: '事務編シート-有効アプライ'
+                },
+                {
+                  type: 'doc',
+                  id: 'soumu_docs/data/spreadsheet/zimu3',
+                  label: '事務編シート-無効・キャンセル済み'
+                },
+                {
+                  type: 'doc',
+                  id: 'soumu_docs/data/spreadsheet/zimu4',
+                  label: '事務編シート-渉外展開用(メール配信)'
+                },
+                {
+                  type: 'doc',
+                  id: 'soumu_docs/data/spreadsheet/zimu5',
+                  label: '事務編シート-広報展開用(写真許可)'
+                }
+              ]
+            }
           ],
         },
         {
@@ -90,6 +135,11 @@ const sidebars: SidebarsConfig = {
           label: '吊り看板',
         },
         {
+          type: 'doc',
+          id: 'soumu_docs/temp-staff',
+          label: '当セク当スタ',
+        },
+        {
           type: 'link',
           label: '🔒 Contact',
           href: 'https://git.re4lity.com/#/contact',
@@ -124,7 +174,17 @@ const sidebars: SidebarsConfig = {
         {
           type: 'doc',
           id: 'contribution/setting-up',
-          label: '開発/環境のセットアップ',
+          label: '[本格]サイトの環境に参加する',
+        },
+        {
+          type: 'doc',
+          id: 'contribution/contribution-easy',
+          label: '[簡単]サイトの環境に参加する',
+        },
+        {
+          type: 'doc',
+          id: 'tech/webhook',
+          label: 'Webhook解説',
         },
       ],
     },

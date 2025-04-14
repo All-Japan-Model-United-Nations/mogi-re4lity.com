@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+tags: [Unstable]
 ---
 
 # 備品管理

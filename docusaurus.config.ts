@@ -40,7 +40,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         name: 'google-site-verification',
-        content: process.env.GOOGLE_SITE_VERIFICATION || 'default-verification-code',
+        content:'xmlP7M078iOqLp6nNB_nlzlT-3sVGAGk7Lb5T9Do4gk',
       },
     },
   ],

@@ -28,3 +28,8 @@ CI/CD:
   label: CI/CD
   permalink: /CI-CD
   description: CI/CDについての記事
+
+ZeroTrust:
+  label: ZeroTrust
+  permalink: /ZeroTrust
+  description: ZeroTrustについての記事

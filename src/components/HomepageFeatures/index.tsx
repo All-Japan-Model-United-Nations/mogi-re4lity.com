@@ -1,55 +1,61 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  icon: string;
   description: ReactNode;
 };
+
 const FeatureList: FeatureItem[] = [
   {
-    title: '総務のノウハウ共有',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: '成長できる環境',
+    icon: '🚀',
     description: (
       <>
-        第35回、第36回大会を通じて総務として参画した人材が運営しています。<br />
-        豊富なノウハウをこのサイトを通して提供します。
+        イベント運営、交渉、広報、財務など、
+        実践的なスキルを磨ける場がここにあります。
+        失敗を恐れず挑戦し、共に成長しましょう。
       </>
     ),
   },
   {
-    title: 'ウェブサイトからのアクセス',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: '全国の仲間と繋がる',
+    icon: '🤝',
     description: (
       <>
-        Googleドキュメントではなくウェブサイトで展開することで、<br />
-        誰でも簡単にアクセスできるようにしています。<br />
+        北は北海道から南は九州まで、
+        全国から集まる多様なバックグラウンドを持つ学生と
+        一生モノの繋がりを作ることができます。
       </>
     ),
   },
   {
-    title: 'オープンソースでの開発',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: '創造性を形にする',
+    icon: '💡',
     description: (
       <>
-        Docusaurusというオープンソースのプロジェクトを利用し、<br />
-        カスタマイズ性の高いウェブサイトを構築しています。
+        あなたのアイデアが、数百人の参加者を動かします。
+        既存の枠にとらわれず、新しい価値を創造できる
+        クリエイティブな環境です。
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, icon, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={styles.featureCard}>
+        <div className={styles.featureIcon}>
+          {icon}
+        </div>
+        <div className="text--center">
+          <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
+          <p className={styles.featureDescription}>{description}</p>
+        </div>
       </div>
     </div>
   );

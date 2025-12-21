@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import dotenv from 'dotenv';
 
@@ -45,7 +45,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         name: 'google-site-verification',
-        content:'xmlP7M078iOqLp6nNB_nlzlT-3sVGAGk7Lb5T9Do4gk',
+        content: 'xmlP7M078iOqLp6nNB_nlzlT-3sVGAGk7Lb5T9Do4gk',
       },
     },
   ],
@@ -96,9 +96,9 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: '総務引継ぎ書類',
+          label: '事務局について',
         },
-        {to: '/blog', label: 'ブログ', position: 'left'},
+        { to: '/blog', label: 'ブログ', position: 'left' },
         {
           href: 'https://internal-mogi.re4lity.com/',
           label: '内部用サイト',
@@ -113,7 +113,7 @@ const config: Config = {
           title: 'サイト内リンク',
           items: [
             {
-              label: '総務引継ぎ書類',
+              label: '事務局について',
               to: '/docs/intro',
             },
             {
@@ -136,7 +136,7 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} <a href="https://re4lity.com/">re4lity</a> Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.github,  
+      theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
     i18n: {

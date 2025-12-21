@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -17,7 +17,34 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
-      label: '総務引継ぎ',
+      label: '事務局について',
+      items: [
+        'about_us/about-mogi',
+        'about_us/about-AJMUN',
+        'about_us/about-this-site',
+      ],
+    },
+    {
+      type: 'category',
+      label: '役職・仕事紹介',
+      link: {
+        type: 'doc',
+        id: 'roles/intro',
+      },
+      items: [
+        'roles/sec-gen',
+        'roles/director',
+        'roles/general-affairs',
+        'roles/public-relations',
+        'roles/financial',
+        'roles/external-affairs',
+      ],
+    },
+    {
+      type: 'category',
+      label: '資料庫 (旧:総務引継ぎ)',
+      collapsible: true,
+      collapsed: true,
       link: {
         type: "doc",
         id: "soumu_docs/overall",
@@ -53,7 +80,7 @@ const sidebars: SidebarsConfig = {
               label: '個人情報シート',
             },
             {
-              type:'category',
+              type: 'category',
               label: '個別シートの解説',
               link: {
                 type: 'doc',
@@ -148,28 +175,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'AJMUN事務局について',
-      items: [
-        {
-          type: 'doc',
-          id: 'about_us/about-mogi',
-          label: '模擬国連とは',
-        },
-        {
-          type: 'doc',
-          id: 'about_us/about-AJMUN',
-          label: 'AJMUNについて',
-        },
-        {
-          type: 'doc',
-          id: 'about_us/about-this-site',
-          label: 'このサイトの構造',
-        },
-      ],
-    },
-    {
-      type: 'category',
-      label: '開発',
+      label: 'サイト開発・貢献',
       items: [
         {
           type: 'doc',

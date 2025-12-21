@@ -4,32 +4,93 @@
  * work well for content-centric websites.
  */
 
+/* Google Fonts - Noto Sans JP */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Primary Blue Palette */
+  --ifm-color-primary: #0066FF;
+  --ifm-color-primary-dark: #0052CC;
+  --ifm-color-primary-darker: #004BB8;
+  --ifm-color-primary-darkest: #003D99;
+  --ifm-color-primary-light: #4D94FF;
+  --ifm-color-primary-lighter: #66A3FF;
+  --ifm-color-primary-lightest: #99C2FF;
+  
+  /* Accent Colors */
+  --color-accent: #00D4FF;
+  --color-surface: #F8FAFC;
+  
+  /* Typography */
+  --ifm-font-family-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 102, 255, 0.1);
+  
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
+  --ifm-navbar-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  
+  /* Footer */
+  --ifm-footer-background-color: #0a1628;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #4D94FF;
+  --ifm-color-primary-dark: #3385FF;
+  --ifm-color-primary-darker: #1A75FF;
+  --ifm-color-primary-darkest: #0066FF;
+  --ifm-color-primary-light: #66A3FF;
+  --ifm-color-primary-lighter: #80B3FF;
+  --ifm-color-primary-lightest: #99C2FF;
+  
+  --color-accent: #00D4FF;
+  --color-surface: #1a2332;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(77, 148, 255, 0.2);
+  
+  --ifm-navbar-background-color: rgba(10, 22, 40, 0.95);
+  --ifm-footer-background-color: #060d18;
 }
 
 /* 外部リンクアイコンを非表示にする */
 a[target="_blank"] svg {
   display: none !important;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced navbar with blur */
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Button enhancements */
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  border: none;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+}
+
+/* Card hover effects */
+.card {
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
 }

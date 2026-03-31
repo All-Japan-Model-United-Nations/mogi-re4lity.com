@@ -1,262 +1,188 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  position: relative;
-  padding: 6rem 0;
-  text-align: center;
+  background: white;
+  padding: 5rem 0;
   overflow: hidden;
-  background: linear-gradient(135deg, #0066FF 0%, #0052CC 50%, #003D99 100%);
-  color: white;
 }
 
-.heroBanner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(77, 148, 255, 0.3) 0%, transparent 50%);
-  pointer-events: none;
+[data-theme='dark'] .heroBanner {
+  background: var(--ifm-background-color);
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .heroContent {
-  position: relative;
-  z-index: 2;
+  flex: 1;
+  max-width: 600px;
 }
 
 .heroTitle {
-  font-size: 3.5rem;
-  font-weight: 900;
-  margin-bottom: 1rem;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  animation: fadeInUp 0.8s ease-out;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ifm-font-color-base);
+}
+
+.heroAccent {
+  color: var(--ifm-color-primary);
 }
 
 .heroSubtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  opacity: 0.9;
-  margin-bottom: 2rem;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  color: var(--ifm-color-emphasis-600);
+  margin: 1rem 0 2rem;
+  line-height: 1.6;
 }
 
 .buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
   gap: 1rem;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+.heroImage {
+  flex-shrink: 0;
+  width: 280px;
+}
+
+.heroImage img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* About section */
+.aboutSection {
+  padding: 3rem 0;
+  background: #f6f6f7;
+  border-top: 1px solid #e5e7eb;
+}
+
+[data-theme='dark'] .aboutSection {
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+}
+
+.aboutInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.aboutTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.aboutText {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+[data-theme='dark'] .aboutText {
+  color: #9ca3af;
+}
+
+.aboutNote {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .aboutNote {
+  background: #2a2a2a;
+}
+
+.aboutNoteIcon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+
+.aboutNoteTitle {
   font-weight: 600;
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #0066FF;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  color: var(--ifm-font-color-base);
 }
 
-.ctaButton:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  color: #0052CC;
-  text-decoration: none;
+.aboutNoteText {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 0;
 }
 
-.ctaButtonSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 50px;
-  background: transparent;
-  color: white;
-  text-decoration: none;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
+[data-theme='dark'] .aboutNoteText {
+  color: #9ca3af;
 }
 
-.ctaButtonSecondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: white;
-  color: white;
-  text-decoration: none;
-}
-
-/* Wave animation at bottom */
-.waveContainer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  overflow: hidden;
-}
-
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 200%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23ffffff' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,75 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") repeat-x;
-  background-size: 50% 100%;
-  animation: wave 20s linear infinite;
-}
-
-[data-theme='dark'] .wave {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%231b1b1d' d='M0,50 C360,100 720,0 1080,50 C1260,75 1350,75 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E") repeat-x;
-  background-size: 50% 100%;
-}
-
-@keyframes wave {
-  0% {
-    transform: translateX(0);
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 2rem 0;
   }
 
-  100% {
-    transform: translateX(-50%);
+  .aboutTitle {
+    font-size: 1.3rem;
   }
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@media (max-width: 996px) {
+  .heroInner {
+    gap: 2rem;
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+  /* heroTitle は clamp() で動的制御 */
 
-/* Floating particles effect */
-.particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  animation: float 15s infinite;
-}
-
-.particle:nth-child(1) {
-  left: 10%;
-  animation-delay: 0s;
-  animation-duration: 20s;
-}
-
-.particle:nth-child(2) {
-  left: 20%;
-  animation-delay: 2s;
-  animation-duration: 18s;
-}
-
-.particle:nth-child(3) {
-  left: 30%;
-  animation-delay: 4s;
-  animation-duration: 22s;
-}
-
-.particle:nth-child(4) {
-  left: 40%;
-  animation-delay: 1s;
-  animation-duration: 16s;
-}
-
-.particle:nth-child(5) {
-  left: 50%;
-  animation-delay: 3s;
-  animation-duration: 19s;
-}
-
-.particle:nth-child(6) {
-  left: 60%;
-  animation-delay: 5s;
-  animation-duration: 21s;
-}
-
-.particle:nth-child(7) {
-  left: 70%;
-  animation-delay: 2s;
-  animation-duration: 17s;
-}
-
-.particle:nth-child(8) {
-  left: 80%;
-  animation-delay: 4s;
-  animation-duration: 23s;
-}
-
-.particle:nth-child(9) {
-  left: 90%;
-  animation-delay: 1s;
-  animation-duration: 15s;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(100vh) scale(0);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-100vh) scale(0.5);
-    opacity: 0;
+  .heroImage {
+    width: 220px;
   }
 }
 
-@media screen and (max-width: 996px) {
+@media (max-width: 768px) {
   .heroBanner {
-    padding: 4rem 1rem;
+    padding: 3rem 0;
+  }
+
+  .heroInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
   }
 
   .heroTitle {
-    font-size: 2.5rem;
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
   }
 
-  .heroSubtitle {
-    font-size: 1.2rem;
+  .heroImage {
+    width: 180px;
+    order: -1;
   }
 
   .buttons {
+    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .heroImage {
+    width: 150px;
+  }
+
+  .aboutNote {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }

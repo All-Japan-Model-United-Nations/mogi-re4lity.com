@@ -14,14 +14,7 @@ const config: Config = {
 
   // Set the production url of your site here
   url: 'https://mogi.re4lity.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  organizationName: 'All-Japan-Model-United-Nations', // Usually your GitHub org/user name.
-  projectName: 'mogi-re4lity.com', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
@@ -48,6 +41,18 @@ const config: Config = {
         content: 'xmlP7M078iOqLp6nNB_nlzlT-3sVGAGk7Lb5T9Do4gk',
       },
     },
+  ],
+
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['ja'],
+        highlightSearchTermsOnTargetPage: true,
+        searchBarShortcutHint: true,
+      },
+    ],
   ],
 
   presets: [
@@ -79,8 +84,8 @@ const config: Config = {
       id: 'announcement',
       content:
         '本サイトは構築途中です。内容が不正確であったり、不十分であったりする場合があります。',
-      backgroundColor: '#87cefa',
-      textColor: '#091E42',
+      backgroundColor: '#ecfdf5',
+      textColor: '#065f46',
       isCloseable: true,
     },
     // Replace with your project's social card
@@ -108,32 +113,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'サイト内リンク',
-          items: [
-            {
-              label: '事務局について',
-              to: '/docs/intro',
-            },
-            {
-              label: 'ブログ',
-              to: '/blog',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-
-            {
-              label: 'GitHub',
-              href: 'https://github.com/sudolifeagain/soumublog',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://re4lity.com/">re4lity</a> Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://re4lity.com/">re4lity</a>`,
     },
     prism: {
       theme: prismThemes.github,

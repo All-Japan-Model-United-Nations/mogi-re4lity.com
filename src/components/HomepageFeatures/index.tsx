@@ -52,7 +52,7 @@ function Feature({ title, icon, description }: FeatureItem) {
         <div className={styles.featureIcon}>
           {icon}
         </div>
-        <div className="text--center">
+        <div>
           <Heading as="h3" className={styles.featureTitle}>{title}</Heading>
           <p className={styles.featureDescription}>{description}</p>
         </div>

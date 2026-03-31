@@ -9,51 +9,55 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  /* Primary Blue Palette */
-  --ifm-color-primary: #0066FF;
-  --ifm-color-primary-dark: #0052CC;
-  --ifm-color-primary-darker: #004BB8;
-  --ifm-color-primary-darkest: #003D99;
-  --ifm-color-primary-light: #4D94FF;
-  --ifm-color-primary-lighter: #66A3FF;
-  --ifm-color-primary-lightest: #99C2FF;
-  
+  /* Primary Green Palette (stack.cai.im style) */
+  --ifm-color-primary: #10b981;
+  --ifm-color-primary-dark: #059669;
+  --ifm-color-primary-darker: #047857;
+  --ifm-color-primary-darkest: #065f46;
+  --ifm-color-primary-light: #34d399;
+  --ifm-color-primary-lighter: #6ee7b7;
+  --ifm-color-primary-lightest: #a7f3d0;
+
   /* Accent Colors */
-  --color-accent: #00D4FF;
-  --color-surface: #F8FAFC;
-  
+  --color-accent: #10b981;
+  --color-surface: #f6f6f7;
+
   /* Typography */
   --ifm-font-family-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --ifm-heading-font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.75;
+
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 102, 255, 0.1);
-  
+  --docusaurus-highlighted-code-line-bg: rgba(16, 185, 129, 0.1);
+
   /* Navbar */
   --ifm-navbar-background-color: rgba(255, 255, 255, 0.95);
-  --ifm-navbar-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  
+  --ifm-navbar-shadow: none;
+
   /* Footer */
-  --ifm-footer-background-color: #0a1628;
+  --ifm-footer-background-color: #fafafa;
+  --ifm-footer-color: #64748b;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #4D94FF;
-  --ifm-color-primary-dark: #3385FF;
-  --ifm-color-primary-darker: #1A75FF;
-  --ifm-color-primary-darkest: #0066FF;
-  --ifm-color-primary-light: #66A3FF;
-  --ifm-color-primary-lighter: #80B3FF;
-  --ifm-color-primary-lightest: #99C2FF;
-  
-  --color-accent: #00D4FF;
-  --color-surface: #1a2332;
-  
-  --docusaurus-highlighted-code-line-bg: rgba(77, 148, 255, 0.2);
-  
-  --ifm-navbar-background-color: rgba(10, 22, 40, 0.95);
-  --ifm-footer-background-color: #060d18;
+  --ifm-color-primary: #34d399;
+  --ifm-color-primary-dark: #10b981;
+  --ifm-color-primary-darker: #059669;
+  --ifm-color-primary-darkest: #047857;
+  --ifm-color-primary-light: #6ee7b7;
+  --ifm-color-primary-lighter: #a7f3d0;
+  --ifm-color-primary-lightest: #d1fae5;
+
+  --color-accent: #34d399;
+  --color-surface: #1a1a1a;
+
+  --docusaurus-highlighted-code-line-bg: rgba(52, 211, 153, 0.2);
+
+  --ifm-navbar-background-color: rgba(30, 30, 30, 0.95);
+  --ifm-footer-background-color: #1a1a1a;
+  --ifm-footer-color: #94a3b8;
 }
 
 /* 外部リンクアイコンを非表示にする */
@@ -68,29 +72,101 @@ html {
 
 /* Enhanced navbar with blur */
 .navbar {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
-/* Button enhancements */
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Button styles — flat rounded (stack.cai.im style) */
 .button--primary {
-  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  background: var(--ifm-color-primary);
   border: none;
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.4);
-  transition: all 0.3s ease;
+  border-radius: 20px;
+  box-shadow: none;
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
 }
 
 .button--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.5);
+  background: var(--ifm-color-primary-dark);
+  transform: none;
+  box-shadow: none;
+}
+
+.button--outline {
+  border-radius: 20px;
+  border: 1px solid #d1d5db;
+  color: var(--ifm-font-color-base);
+  padding: 0.6rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+}
+
+.button--outline:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  background: transparent;
+}
+
+[data-theme='dark'] .button--outline {
+  border-color: #4b5563;
+}
+
+/* Sidebar styling */
+.menu__list-item-collapsible > .menu__link {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid var(--ifm-toc-border-color);
+}
+
+/* Document content area */
+.markdown h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdown h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
 /* Card hover effects */
 .card {
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 102, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Footer — simple and light */
+.footer--dark {
+  --ifm-footer-background-color: #fafafa;
+  --ifm-footer-color: #64748b;
+  --ifm-footer-link-color: #64748b;
+  --ifm-footer-title-color: #374151;
+}
+
+[data-theme='dark'] .footer--dark {
+  --ifm-footer-background-color: #1a1a1a;
+  --ifm-footer-color: #94a3b8;
+  --ifm-footer-link-color: #94a3b8;
+  --ifm-footer-title-color: #e2e8f0;
 }

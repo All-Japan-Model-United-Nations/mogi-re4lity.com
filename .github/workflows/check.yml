@@ -6,32 +6,42 @@ on:
       - main
     types: [opened, synchronize, reopened]
 
+# 同じPRの古いチェックをキャンセル
+concurrency:
+  group: check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
+        cache: 'npm'
 
     - name: Install dependencies
-      run: yarn install
+      run: npm ci
 
     - name: TypeScript type check
       id: typecheck
       run: |
-        yarn typecheck 2>&1 | tee typescript-report.txt
+        npm run typecheck 2>&1 | tee typescript-report.txt
         exit ${PIPESTATUS[0]}
 
     - name: Build project
       id: build
       run: |
-        yarn build 2>&1 | tee build-report.txt
+        npm run build 2>&1 | tee build-report.txt
         exit ${PIPESTATUS[0]}
 
     - name: Comment Test Results on PR

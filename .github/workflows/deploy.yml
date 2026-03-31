@@ -5,13 +5,17 @@ on:
     branches:
       - main
 
+# 同時実行制御: 同じブランチの古いデプロイをキャンセル
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4

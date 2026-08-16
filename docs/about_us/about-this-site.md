@@ -4,9 +4,9 @@ sidebar_position: 3
 
 # このサイトについて
 
-このサイトは[Docusaurus](https://docusaurus.io/)によってビルドされ、[Github Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages)によってデプロイされています。
-CLoudflareにてDNSを管理しているre4lity.comのサブドメイン、`mogi.re4lity.com`をデプロイ先として指定しています。
+このサイトは[Docusaurus](https://docusaurus.io/)によってビルドされ、[Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/)で配信されています。
+Cloudflare で DNS を管理している `re4lity.com` のサブドメイン、`mogi.re4lity.com` をカスタムドメインとして設定しています。
 
 ```json
-    "deploy": "docusaurus build && echo mogi.re4lity.com > build/CNAME && gh-pages -d build",
+    "deploy": "npm run build && npm run deploy:worker",
 ```

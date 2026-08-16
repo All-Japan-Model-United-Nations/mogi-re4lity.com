@@ -143,7 +143,6 @@ yarn serve
 
 - `main`: 本番環境に反映される安定版のコードを保持するブランチ
 - `dev`: 開発作業を行うブランチ
-- `gh-pages`: ビルドによって生成されたファイル用のブランチ
 
 ブランチを分ける理由:
 
@@ -230,10 +229,10 @@ git push origin ブランチ名
 - デプロイのミスを防止できる
 - 常に最新のコードが本番環境に反映される
 
-実際のデプロイ処理は、package.jsonの以下のスクリプトに基づいています:
+実際のデプロイ処理は、Docusaurus の成果物を Cloudflare Workers Static Assets にアップロードします。ローカルからデプロイする場合は、以下を実行します:
 
 ```json
-"deploy": "docusaurus build && echo mogi.re4lity.com > build/CNAME && gh-pages -d build"
+"deploy": "npm run build && npm run deploy:worker"
 ```
 
 ## よくある問題と解決策

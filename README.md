@@ -45,7 +45,7 @@ git --version
 
 ### Node.js
 
-1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 18.0以上が必要）
+1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 22.0以上が必要。CIと同じNode.js 24を推奨）
 
 2. インストーラーを実行し、デフォルト設定で進める
 
@@ -239,11 +239,11 @@ git push origin ブランチ名
 
 ### Node.jsのバージョンエラー
 
-package.jsonで指定されているNode.jsのバージョン(>=18.0)と異なるバージョンを使用している場合:
+package.jsonで指定されているNode.jsのバージョン(>=22.0.0)と異なるバージョンを使用している場合:
 
 ``` bash
-nvm install 18
-nvm use 18
+nvm install 24
+nvm use 24
 ```
 
 NVMがインストールされていない場合は[NVM for Windows](https://github.com/coreybutler/nvm-windows/releases)からインストールできます。

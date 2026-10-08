@@ -2,16 +2,16 @@
 
 このwebサイトは [Docusaurus](https://docusaurus.io/)を使用し構築しています。以下にAIを用いてステップバイステップの開発手順書を作成したので、参考にしてください。
 
-## Docusaurus開発環境構築ガイド (Windows/Yarn)
+## Docusaurus開発環境構築ガイド (Windows/npm)
 
-このガイドでは、Windows環境でのDocusaurus開発環境の構築方法を初心者向けに解説します。GitHubリポジトリ「All-Japan-Model-United-Nations/mogi-re4lity.com」を使った開発ワークフローも含みます。パッケージマネージャとして**Yarn**を使用します。
+このガイドでは、Windows環境でのDocusaurus開発環境の構築方法を初心者向けに解説します。GitHubリポジトリ「All-Japan-Model-United-Nations/mogi-re4lity.com」を使った開発ワークフローも含みます。パッケージマネージャは**npm**を使用し、`npm ci`で`package-lock.json`と`package.json`のセキュリティ更新を適用します。
 
 ## 目次
 
 1. [基本ツールのインストール](#基本ツールのインストール)
    - Git
    - Node.js
-   - Yarn
+   - npm
    - Visual Studio Code
 2. [リポジトリのクローン](#リポジトリのクローン)
 3. [開発環境の設定](#開発環境の設定)
@@ -45,7 +45,7 @@ git --version
 
 ### Node.js
 
-1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 18.0以上が必要）
+1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 22.0以上が必要。CIと同じNode.js 24を推奨）
 
 2. インストーラーを実行し、デフォルト設定で進める
 
@@ -55,18 +55,12 @@ git --version
 node --version
 ```
 
-### Yarn
+### npm
 
-1. Windows PowerShellを管理者権限で開き、以下のコマンドを実行:
-
-```bash
-npm install -g yarn
-```
-
-2. インストール完了後、動作確認:
+Node.jsと一緒にインストールされます。Windows PowerShellで動作確認:
 
 ```bash
-yarn --version
+npm --version
 ```
 
 ### Visual Studio Code
@@ -106,33 +100,34 @@ cd mogi-re4lity.com
 git branch -a
 ```
 
-4. 開発用の`dev`ブランチに切り替え:
+4. セキュリティ更新を含む最新の`main`ブランチを取得:
 
 ```bash
-git checkout dev
+git checkout main
+git pull --ff-only origin main
 ```
 
 ## 開発環境の設定
 
 1. 必要なパッケージをインストール:
 ```
-yarn install
+npm ci
 ```
 
 2. 開発サーバーを起動してプロジェクトを実行:
 ```
-yarn start
+npm run start
 ```
   ブラウザが自動的に開き、`http://localhost:3000`でサイトが表示されます。
 
 3. ビルドテスト(必要に応じて):
 ```
-yarn build
+npm run build
 ```
 
 4. ローカルでビルド結果を確認:
 ```
-yarn serve
+npm run serve
 ```
 
 ## 開発ワークフロー
@@ -153,12 +148,12 @@ yarn serve
 
 ### 作業用ブランチの作成
 
-大きな機能追加やバグ修正には、`dev`ブランチからさらに作業用ブランチを作成することをおすすめします:
+作業用ブランチは、セキュリティ更新を含む最新の`main`から作成します:
 
-1. 最新の`dev`ブランチを取得:
+1. 最新の`main`ブランチを取得:
 ```
-git checkout dev
-git pull origin dev
+git checkout main
+git pull --ff-only origin main
 ```
 
 2. 新しい作業ブランチを作成して切り替え:
@@ -198,28 +193,22 @@ git push origin ブランチ名
 
 ### プルリクエストの作成
 
-作業が完了したら、`dev`ブランチへのプルリクエストを作成します:
+作業が完了したら、`main`ブランチへのプルリクエストを作成します:
 
 1. GitHubのリポジトリページに移動
 2. 「Pull requests」タブをクリック
 3. 「New pull request」ボタンをクリック
-4. ベースブランチ(取り込み先)として`dev`を選択
+4. ベースブランチ(取り込み先)として`main`を選択
 5. 比較ブランチ(取り込むブランチ)として作業ブランチを選択
 6. 「Create pull request」ボタンをクリック
 7. プルリクエストのタイトルと説明を入力
 8. 「Create pull request」ボタンをクリック
 
-プルリクエストがレビューされ、承認されると`dev`ブランチにマージされます。
+プルリクエストの型検査・ビルド・レビューを確認し、承認後に`main`へ取り込みます。
 
-### mainブランチへのマージ
+### 本番への反映
 
-開発が一定段階に達し、本番環境にリリースする準備ができたら:
-
-1. `dev`ブランチから`main`ブランチへのプルリクエストを作成:
-   - ベースブランチとして`main`を選択
-   - 比較ブランチとして`dev`を選択
-2. プルリクエストが承認されると、`main`ブランチにマージされます
-3. GitHub Actionsにより自動的にビルドとデプロイが実行されます
+`main`への取り込みはGitHub Actionsの自動ビルド・デプロイを起動します。公開する内容と検証結果を確認してから取り込んでください。`dev`を利用する場合も、最新の`main`のlockfile・overrides・Node設定を反映してから`npm ci`を実行します。
 
 ## GitHub Actionsによる自動デプロイ
 
@@ -239,11 +228,11 @@ git push origin ブランチ名
 
 ### Node.jsのバージョンエラー
 
-package.jsonで指定されているNode.jsのバージョン(>=18.0)と異なるバージョンを使用している場合:
+package.jsonで指定されているNode.jsのバージョン(>=22.0.0)と異なるバージョンを使用している場合:
 
 ``` bash
-nvm install 18
-nvm use 18
+nvm install 24
+nvm use 24
 ```
 
 NVMがインストールされていない場合は[NVM for Windows](https://github.com/coreybutler/nvm-windows/releases)からインストールできます。
@@ -251,8 +240,8 @@ NVMがインストールされていない場合は[NVM for Windows](https://git
 ### パッケージインストールエラー
 
 ```bash
-yarn cache clean
-yarn install
+npm cache verify
+npm ci
 ```
 
 ### gitコマンドが見つからないエラー
@@ -262,18 +251,18 @@ PATHが正しく設定されていない可能性があります。Git for Windo
 ### ポート3000が既に使用されている
 
 ```bash
-yarn start --port 3001
+npm run start -- --port 3001
 ```
 
 ### Docusaurusの基本コマンド
 
-よく使うDocusaurusのコマンドは次の通りです（Yarn版）:
+よく使うDocusaurusのコマンドは次の通りです（npm版）:
 
-- 開発サーバー起動: `yarn start`
-- ビルド: `yarn build`
-- ビルド結果をローカルで確認: `yarn serve`
-- キャッシュクリア: `yarn clear`
-- 型チェック実行: `yarn typecheck`
+- 開発サーバー起動: `npm run start`
+- ビルド: `npm run build`
+- ビルド結果をローカルで確認: `npm run serve`
+- キャッシュクリア: `npm run clear`
+- 型チェック実行: `npm run typecheck`
 
 ---
 

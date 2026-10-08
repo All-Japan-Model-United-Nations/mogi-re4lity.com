@@ -35,11 +35,25 @@ jobs:
       - name: Build the Docusaurus site
         run: npm run build
 
+      - name: Resolve the locked Wrangler version
+        id: wrangler-version
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const locked = JSON.parse(fs.readFileSync('package-lock.json', 'utf8')).packages['node_modules/wrangler'].version;
+          const installed = JSON.parse(fs.readFileSync('node_modules/wrangler/package.json', 'utf8')).version;
+          if (installed !== locked || !/^\d+\.\d+\.\d+$/.test(installed)) {
+            throw new Error('Installed Wrangler must match package-lock.json');
+          }
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, `version=${installed}\n`);
+          NODE
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0  # v4.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          wranglerVersion: '4.80.0'
+          # インストール済みCLIとlockfileの一致を確認した版を指定する。
+          wranglerVersion: ${{ steps.wrangler-version.outputs.version }}
           command: deploy

@@ -51,7 +51,7 @@ git --version
 
 ### Node.js
 
-1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 22.0以上が必要。CIと同じNode.js 24を推奨）
+1. [Node.js公式サイト](https://nodejs.org/)からLTS(Long Term Support)版をダウンロード（package.jsonより、Node.js 22.0以上が必要。CIと同じNode.js 24.22.1を推奨）
 
 2. インストーラーを実行し、デフォルト設定で進める
 
